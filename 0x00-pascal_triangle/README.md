@@ -1,0 +1,1 @@
+### This directory contains the code files for defining the Pascal's Triangle theorem.
