@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+"""_summary_"""
+
 def pascal_triangle(n):
     """This function returns a list of lists representing Pascal's triangle of n rows.
     
