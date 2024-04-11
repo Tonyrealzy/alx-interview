@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""_summary_"""
+"""This file contains the function for evaluating the Pascal's triangle."""
 
 def pascal_triangle(n):
     """This function returns a list of lists representing Pascal's triangle of n rows.
