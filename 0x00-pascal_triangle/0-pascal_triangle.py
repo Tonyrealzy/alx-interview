@@ -1,14 +1,17 @@
 #!/usr/bin/python3
 """This file contains the function for evaluating the Pascal's triangle."""
 
+
 def pascal_triangle(n):
-    """This function returns a list of lists representing Pascal's triangle of n rows.
+    """This function returns a list of lists representing Pascal's
+    triangle of n rows.
     
     Parameters:
     n: An integer representing the number of rows in the Pascal's triangle.
     
     Returns:
-    A list of lists representing Pascal's triangle. Returns an empty list if n <= 0.
+    A list of lists representing Pascal's triangle. Returns an empty
+    list if n <= 0.
     """
     
     if n <= 0:
