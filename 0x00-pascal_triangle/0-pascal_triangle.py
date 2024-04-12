@@ -7,7 +7,8 @@ def pascal_triangle(n):
     triangle of n rows.
     
     Parameters:
-    n: An integer representing the number of rows in the Pascal's triangle.
+    n: An integer representing the number of rows in the Pascal's
+    triangle.
     
     Returns:
     A list of lists representing Pascal's triangle. Returns an empty
@@ -24,7 +25,8 @@ def pascal_triangle(n):
     # Building the triangle row by row
     for i in range(2, n):
         prev_row = triangle[i-1]
-        current_row = [sum(pair) for pair in zip([0] + prev_row, prev_row + [0])]
+        current_row = [sum(pair)
+                       for pair in zip([0] + prev_row, prev_row + [0])]
         triangle.append(current_row)
-        
+
     return triangle
