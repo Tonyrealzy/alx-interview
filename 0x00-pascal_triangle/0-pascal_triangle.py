@@ -3,13 +3,12 @@
 
 
 def pascal_triangle(n):
-    """This function returns a list of lists representing Pascal's
+    """
+    This function returns a list of lists representing Pascal's
     triangle of n rows.
-    
     Parameters:
     n: An integer representing the number of rows in the Pascal's
     triangle.
-    
     Returns:
     A list of lists representing Pascal's triangle. Returns an empty
     list if n <= 0.
@@ -18,6 +17,7 @@ def pascal_triangle(n):
         return []
     
     triangle = [[1]]
+    
     if n > 1:
         triangle.append([1, 1])
     
