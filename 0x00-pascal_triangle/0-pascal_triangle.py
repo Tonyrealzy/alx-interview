@@ -14,7 +14,6 @@ def pascal_triangle(n):
     A list of lists representing Pascal's triangle. Returns an empty
     list if n <= 0.
     """
-    
     if n <= 0:
         return []
     
@@ -24,9 +23,8 @@ def pascal_triangle(n):
     
     # Building the triangle row by row
     for i in range(2, n):
-        prev_row = triangle[i-1]
-        current_row = [sum(pair)
-                       for pair in zip([0] + prev_row, prev_row + [0])]
+        p = triangle[i-1]
+        current_row = [sum(pair) for pair in zip([0] + p, p + [0])]
         triangle.append(current_row)
 
     return triangle
