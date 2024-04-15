@@ -2,25 +2,26 @@
 """A method that determines if all the boxes can be opened"""
 
 
-from collections import deque
+def canUnlockAll(boxes):
+    """Determines if all the boxes can be opened"""
 
-def canUnlockAll(boxes): 
-    """
-    Args:
-        boxes (_type_): _description_
-        
-    Returns: True if all the boxes can be unlocked, else False
-    """
-    
-    visited = set()
-    queue = deque([0])
-    
-    while queue:
-        current_box = queue.popleft()
-        visited.add(current_box)
-        
-        for key in boxes[current_box]:
-            if key < len(boxes) and key not in visited:
-                queue.append(key)
-                
-    return len(visited) == len(boxes)
+    if type(boxes) != list:
+        return False
+
+    boxesLength = len(boxes)
+    boxestoOpen = [0]
+    openedBoxes = set()
+
+    while boxestoOpen:
+        boxIndex = boxestoOpen.pop()
+        openedBoxes.add(boxIndex)
+
+        if type(boxes[boxIndex]) != list:
+            return False
+
+        for key in boxes[boxIndex]:
+            if (key < boxesLength) and (key not in boxestoOpen) and\
+                    (key not in openedBoxes):
+                boxestoOpen.append(key)
+
+    return len(openedBoxes) == len(boxes)
