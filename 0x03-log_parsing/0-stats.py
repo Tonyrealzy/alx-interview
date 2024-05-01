@@ -1,40 +1,37 @@
 #!/usr/bin/python3
 """A script that reads stdin line by line and computes metrics."""
+
+
 import sys
 
-possible_status_codes = [200, 301, 400, 401, 403, 404, 405, 500]
-lines_read = 0
-status_codes_map = {}
-total_file_size = 0
-
-
-def print_stats():
-    """prints out the statistics"""
-    print("File size: {}".format(total_file_size))
-    for status, count in sorted(status_codes_map.items()):
-        print("{}: {}".format(status, count))
-
+cache = {'200': 0, '301': 0, '400': 0, '401': 0,
+         '403': 0, '404': 0, '405': 0, '500': 0}
+total_size = 0
+counter = 0
 
 try:
     for line in sys.stdin:
-        line_tokens = line.split()
-        try:
-            file_size = int(line_tokens[-1])
-            total_file_size += file_size
-            status_code = int(line_tokens[-2])
-            if status_code in possible_status_codes:
-                if status_code in status_codes_map:
-                    status_codes_map[status_code] += 1
-                else:
-                    status_codes_map[status_code] = 1
-        except ValueError:
-            pass
-        lines_read += 1
-        if lines_read % 10 == 0:
-            print_stats()
+        line_list = line.split(" ")
+        if len(line_list) > 4:
+            code = line_list[-2]
+            size = int(line_list[-1])
+            if code in cache.keys():
+                cache[code] += 1
+            total_size += size
+            counter += 1
 
-    if (lines_read == 0) or (lines_read % 10 != 0):
-        print_stats()
+        if counter == 10:
+            counter = 0
+            print('File size: {}'.format(total_size))
+            for key, value in sorted(cache.items()):
+                if value != 0:
+                    print('{}: {}'.format(key, value))
 
-except (KeyboardInterrupt):
-    print_stats()
+except Exception as err:
+    pass
+
+finally:
+    print('File size: {}'.format(total_size))
+    for key, value in sorted(cache.items()):
+        if value != 0:
+            print('{}: {}'.format(key, value))
