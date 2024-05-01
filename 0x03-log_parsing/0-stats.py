@@ -4,14 +4,16 @@
 import sys
 
 
-"""Parses a line of input and returns the IP address, status code, and file size."""
 def parse_line(line):
     parts = line.split()
-    if len(parts) != 7:
+    if len(parts) != 10:
         return None
     ip_address = parts[0]
-    status_code = parts[-3]
-    file_size = int(parts[-2])
+    status_code = parts[8]
+    try:
+        file_size = int(parts[9])
+    except ValueError:
+        return None
     return ip_address, status_code, file_size
 
 def print_statistics(total_size, status_counts):
