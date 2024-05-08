@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""A Pythin script that determines if a given data set represents a valid UTF-8 encoding."""
+"""A Python script that determines if a given data set represents a valid UTF-8 encoding."""
 
 def validUTF8(data):
     """Determines if a given data set represents a valid UTF-8 encoding."""
+
     num_bytes = 0
 
     for num in data:
