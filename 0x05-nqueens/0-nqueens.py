@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A Python script that solves the N queens problem"""
 
+
 import sys
 
 
@@ -25,12 +26,12 @@ if __name__ == '__main__':
     r = 0
     c = 0
 
-    # iterate thru rows
+    # iterate through rows
     while r < n:
         goback = False
-        # iterate thru columns
+        # iterate through columns
         while c < n:
-            # check is current column is safe
+            # check if current column is safe
             safe = True
             for cord in placed_queens:
                 col = cord[1]

@@ -4,6 +4,7 @@
 
 import sys
 
+
 def is_safe(board, row, col):
     # To check if there is a queen in the same column
     for i in range(row):
