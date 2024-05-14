@@ -7,17 +7,17 @@ import sys
 def is_safe(board, row, col):
     # To check if there is a queen in the same column
     for i in range(row):
-        if board[i][col] == 'Q':
+        if board[i][col] == 'N':
             return False
 
     # To check upper left diagonal
     for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
-        if board[i][j] == 'Q':
+        if board[i][j] == 'N':
             return False
 
     # To check right diagonal
     for i, j in zip(range(row, -1, -1), range(col, len(board))):
-        if board[i][j] == 'Q':
+        if board[i][j] == 'N':
             return False
 
     return True
@@ -30,7 +30,7 @@ def solve_n_queens(board, row, n):
 
     for col in range(n):
         if is_safe(board, row, col):
-            board[row][col] = 'Q'
+            board[row][col] = 'N'
             solve_n_queens(board, row + 1, n)
             board[row][col] = '.'
 
