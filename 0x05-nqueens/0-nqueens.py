@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """A Python script that solves the N queens problem"""
 
-
 import sys
 
 
 if __name__ == '__main__':
+    """Main function"""
+
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
