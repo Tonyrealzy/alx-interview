@@ -1,0 +1,1 @@
+### This directory contains project files for my ALX Javascript 0x06-starwars_api tasks.
